@@ -304,7 +304,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(0, actual);
     }
 
-    // № 4.3. Нет начисления процентов при балансе > 0, ставка кредитования = 1 %
+    // № 4.4. Нет начисления процентов при балансе > 0, ставка кредитования = 1 %
     @Test
     public void shouldNotCalculateInterestWithPositiveBalanceRateIs1() {
         CreditAccount account = new CreditAccount(
