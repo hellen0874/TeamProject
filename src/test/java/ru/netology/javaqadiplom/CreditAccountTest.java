@@ -284,11 +284,10 @@ public class CreditAccountTest {
     @Test
     public void shouldNotCalculateInterestWithZeroBalance() {
         CreditAccount account = new CreditAccount(
-                3_000,
+                0,
                 5_000,
                 15
         );
-        account.pay(3_000);
         int actual = account.yearChange();
         Assertions.assertEquals(0, actual);
     }
