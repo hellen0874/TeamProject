@@ -296,11 +296,10 @@ public class CreditAccountTest {
     @Test
     public void shouldNotCalculateInterestWithPositiveBalanceRateIs15() {
         CreditAccount account = new CreditAccount(
-                3_000,
+                200,
                 5_000,
                 15
         );
-        account.pay(2_800);
         int actual = account.yearChange();
         Assertions.assertEquals(0, actual);
     }
