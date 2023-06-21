@@ -236,31 +236,31 @@ public class CreditAccountTest {
     }
 
     // № 3.3: Невозможность добавить нулевую сумму к счету с изначальными корректными параметрами
-    // (неотрицательные изначальный баланс, кредитный лимит и ставка кредитования)
+    // (неотрицательные изначальный баланс, кредитный лимит и ставка кредитования) - должен вернуть false
     @Test
     public void shouldNotAddZeroSum() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CreditAccount account = new CreditAccount(
-                    0,
-                    5_000,
-                    15
-            );
-            account.add(0);
-        });
+        CreditAccount account = new CreditAccount(
+                1,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(false, account.add(0));
+        int expected = 1;
+        Assertions.assertEquals(expected, account.getBalance());
     }
 
     // № 3.4: Невозможность добавить отрицательную сумму к счету с изначальными корректными параметрами
-    // (неотрицательные изначальный баланс, кредитный лимит и ставка кредитования)
+    // (неотрицательные изначальный баланс, кредитный лимит и ставка кредитования) - должен вернуть false
     @Test
     public void shouldNotAddNegativeSum() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CreditAccount account = new CreditAccount(
-                    0,
-                    5_000,
-                    15
-            );
-            account.add(-3_000);
-        });
+        CreditAccount account = new CreditAccount(
+                1,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(false, account.add(-1));
     }
 
     // 4. Расчет процентов
