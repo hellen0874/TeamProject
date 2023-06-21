@@ -261,6 +261,8 @@ public class CreditAccountTest {
         );
 
         Assertions.assertEquals(false, account.add(-1));
+        int expected = 1;
+        Assertions.assertEquals(expected, account.getBalance());
     }
 
     // 4. Расчет процентов
